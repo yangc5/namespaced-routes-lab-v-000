@@ -1,0 +1,13 @@
+<%= form_tag admin_settings_path(@preference) do%>
+  <input type="hidden" name="_method" value="PATCH">
+  <label>Song sort order:</label><br>
+  <input type="radio" name="preference[song_sort_order]" value="DESC" <%= "checked" if @preference.song_sort_order == "DESC"%>> DESC<br>
+  <input type="radio" name="preference[song_sort_order]" value="ASC" <%= "checked" if @preference.song_sort_order == "ASC"%>> ASC<br>
+
+  <label>Artist sort order:</label><br>
+  <input type="radio" name="preference[artist_sort_order]" value="DESC" <%= "checked" if @preference.artist_sort_order == "DESC"%>> DESC<br>
+  <input type="radio" name="preference[artist_sort_order]" value="ASC" <%= "checked" if @preference.artist_sort_order == "ASC"%>> ASC<br>
+
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="submit" value="Update">
+<% end %>

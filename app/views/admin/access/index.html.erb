@@ -1,0 +1,13 @@
+<%= form_tag admin_access_path(@preference) do%>
+  <input type="hidden" name="_method" value="PATCH">
+  <label>Allow create songs:</label><br>
+  <input type="radio" name="preference[allow_create_songs]" value=true <%= "checked" if @preference.allow_create_songs == true%>> Yes<br>
+  <input type="radio" name="preference[allow_create_songs]" value=false <%= "checked" if @preference.allow_create_songs == false%>> No<br>
+
+  <label>Allow create artists:</label><br>
+  <input type="radio" name="preference[allow_create_artists]" value=true <%= "checked" if @preference.allow_create_artists == true%>> Yes<br>
+  <input type="radio" name="preference[allow_create_artists]" value=false <%= "checked" if @preference.allow_create_artists == false%>> No<br>
+
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="submit" value="Update">
+<% end %>
